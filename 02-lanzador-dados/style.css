@@ -1,0 +1,90 @@
+/* Reseteo global de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Fondo moderno con degradado profundo */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+}
+
+.dice-wrapper {
+    margin-bottom: 40px;
+    perspective: 600px; /* Permite un efecto 3D visual al girar */
+}
+
+/* El cuadrado blanco estilizado (Dado) */
+.dice {
+    width: 130px;
+    height: 130px;
+    background-color: #ffffff;
+    color: #1e1b4b;
+    font-size: 4.5rem;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 24px; /* Bordes redondeados */
+    margin: 0 auto;
+    user-select: none;
+    /* Sombra profunda para dar volumen y un sutil borde interno */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 
+                inset 0 -6px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.1s ease;
+}
+
+/* Clase de animación que se activará con JavaScript */
+.dice.rolling {
+    animation: rollEffect 0.5s ease-out;
+}
+
+/* Botón interactivo moderno */
+button {
+    background-color: #6366f1;
+    color: #ffffff;
+    border: none;
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background-color: #4f46e5;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(99, 102, 241, 0.4);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* Deshabilitado temporalmente mientras el dado gira */
+button:disabled {
+    background-color: #475569;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Animación de rotación y escala */
+@keyframes rollEffect {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(0.85); }
+    100% { transform: rotate(360deg) scale(1); }
+}
